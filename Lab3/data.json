@@ -1,0 +1,12 @@
+[
+	{
+		"quiz": "Who am I?",
+		"choice": ["Zhu", "Noey", "Nate", "Ploy"],
+		"ans": "Zhu"
+	},
+
+	{
+		"name": "Maneekan",
+		"choice": {"1": "Zhu", "2": "noi"}
+	}
+]

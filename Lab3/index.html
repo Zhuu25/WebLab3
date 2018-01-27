@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="output">Mananchaya Tangsirisup</div>
+	<div id="first">1</div>
+	<div id="sec">2</div>
+	<div id="third">3</div>
+	<div id="fourth">4</div>
+	<button id="ten" onclick="rand(10)"><p>10</p></button>
+	<button id="twenty" onclick="rand(20)"><p>20</p></button>
+	
+	<script src="jquery-3.3.1.min.js" charset="utf-8"></script>
+
+	<script >
+		var list = [];
+		function rand(num){
+			while (list.length < num){
+				var x = Math.floor(Math.random()*num);
+				if (list.length == 0){
+					list.push(x);
+				}
+				else{
+					for (j = 0; j < list.length; j++){
+						if (x != list[j] & j == list.length-1){
+							list.push(x);
+						}
+						else{
+							break;
+						}
+					}
+				}
+	
+				// list.push(x);
+			}
+			console.log(list.length);
+			console.log(list);
+		}
+		$(document).ready(function(){
+			$.ajax({
+				url: 'data.json',
+				method: 'GET',
+				success: function(response){
+					console.log(response);
+					var out = "";
+					$('.output').html(response[0]['quiz']);
+					$('#first').html(response[0]['choice'][0]);
+					$('#sec').html(response[0]['choice'][1]);
+					$('#third').html(response[0]['choice'][2]);
+					$('#fourth').html(response[0]['choice'][3]);
+
+				}
+			});
+   		 });	  
+	</script>
+
+</body>
+</html>
